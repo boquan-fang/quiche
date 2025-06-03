@@ -29,7 +29,7 @@ extern crate log;
 
 use quiche::h3::NameValue;
 
-use ring::rand::*;
+// use ring::rand::*;
 
 const MAX_DATAGRAM_SIZE: usize = 1350;
 
@@ -96,8 +96,9 @@ fn main() {
     let mut http3_conn = None;
 
     // Generate a random source connection ID for the connection.
-    let mut scid = [0; quiche::MAX_CONN_ID_LEN];
-    SystemRandom::new().fill(&mut scid[..]).unwrap();
+    // let scid = [0; quiche::MAX_CONN_ID_LEN];
+    let scid = [];
+    // SystemRandom::new().fill(&mut scid[..]).unwrap();
 
     let scid = quiche::ConnectionId::from_ref(&scid);
 
